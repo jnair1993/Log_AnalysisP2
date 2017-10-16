@@ -35,7 +35,7 @@ Then run command `python newsdata.py` to run the queries.
 
 ## Views Used
 
-"""
+"""sql
 CREATE VIEW total AS
 SELECT date(time), COUNT(*) AS views
 FROM log
@@ -43,7 +43,7 @@ GROUP BY date(time)
 ORDER BY date(time);
 """
 
-"""
+"""sql
 CREATE VIEW errors AS
 SELECT date(time), COUNT(*) AS error_count
 FROM log WHERE status like '%404%'
@@ -51,7 +51,7 @@ GROUP BY date(time)
 ORDER BY date(time);
 """
 
-"""
+"""sql
 CREATE VIEW Error_Rate AS
 SELECT total.date, round((100.0*errors.error_count/total.views),1) AS percent
 FROM total, errors
