@@ -51,18 +51,18 @@ def print_query(q, query):
     db.close()
     if q == q_1:
         for result in new_print:
-            print('\t' + '"' + str(result[0]) + '"' + ' --- ') +
-            (str(result[1]) + " views")
+            print('\t' + '"' + str(result[0]) + '"' + ' --- ' +
+                  str(result[1]) + " views")
 
     elif q == q_2:
         for result in new_print:
-            print('\t' + str(result[0]) + ' --- ') +
-            (str(result[1]) + " views")
+            print('\t' + str(result[0]) + ' --- ' +
+                  str(result[1]) + " views")
 
     elif q == q_3:
         for result in new_print:
-            print('\t' + str(result[0]) + ' ---> ') +
-            (str(result[1]) + "% errors")
+            print('\t' + str(result[0]) + ' ---> ' +
+                  str(result[1]) + "% errors")
 
 print_query(q_1, query_1)
 print_query(q_2, query_2)
