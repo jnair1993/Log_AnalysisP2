@@ -1,6 +1,6 @@
 # Log Analysis Project
 
-> Jayesh nair
+> Jayesh Nair
 
 ## About
 
@@ -33,28 +33,28 @@ Once done with creating views, exit psql with `CTRL -D`.
 
 Then run command `python newsdata.py` to run the queries.
 
-## Views Used
+### Create Views
 
-"""sql
+```sql
 CREATE VIEW total AS
 SELECT date(time), COUNT(*) AS views
 FROM log
 GROUP BY date(time)
 ORDER BY date(time);
-"""
+```
 
-"""sql
+```sql
 CREATE VIEW errors AS
 SELECT date(time), COUNT(*) AS error_count
 FROM log WHERE status like '%404%'
 GROUP BY date(time)
 ORDER BY date(time);
-"""
+```
 
-"""sql
+```sql
 CREATE VIEW Error_Rate AS
 SELECT total.date, round((100.0*errors.error_count/total.views),1) AS percent
 FROM total, errors
 WHERE total.date = errors.date
 ORDER BY total.date;
-"""
+```
