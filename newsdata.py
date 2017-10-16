@@ -9,8 +9,9 @@ def connect():
         db = psycopg2.connect(database=DB_NAME)
         c = db.cursor()
         return db, c
-    except:
+except Exception:
         print("Error connecting to Database")
+
 
 # Queries
 
@@ -63,6 +64,7 @@ def print_query(q, query):
         for result in new_print:
             print('\t' + str(result[0]) + ' ---> ' +
                   str(result[1]) + "% errors")
+
 
 print_query(q_1, query_1)
 print_query(q_2, query_2)
